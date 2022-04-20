@@ -1,0 +1,15 @@
+main {
+    background-color: $color-secondary;
+}
+.wrap {
+    padding: 4em 2em;
+    width: 100%;
+    max-width: $w-xl;
+    margin: 0 auto;
+    @media screen and (max-width:$w-m) {
+        padding: 3em 2em;
+    }
+    @media screen and (max-width:$w-s) {
+        padding: 2em 1em;
+    }
+}
