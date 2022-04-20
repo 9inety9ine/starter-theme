@@ -1,0 +1,44 @@
+body {
+    background: $color-tertiary;
+    font: 15px $font-regular;
+    color: $color-tertiary;
+    line-height: 1.5em;
+    -webkit-font-smoothing: antialiased;
+    @media screen and (max-width:$w-s) {
+        font-size: 3.53vw;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font: 3em $font-bold;
+    margin-bottom: .5em;
+    line-height: 1em;
+}
+strong {
+    font-weight: $font-bold;
+}
+em {
+    font-family: $font-regular-italic;
+}
+small {
+    font-size: .85em;
+}
+a {
+    color: $color-tertiary;
+    text-decoration: underline;
+}
+img {
+    max-width: 100%;
+    display: block;
+    line-height: 1;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+a, div, span, header, img, label {
+    -webkit-tap-highlight-color: transparent;
+}
