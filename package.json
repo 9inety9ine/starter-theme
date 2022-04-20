@@ -1,0 +1,31 @@
+{
+    "version": "1.0.0",
+    "name": "shopify-theme",
+    "author": "Cake Agency",
+    "description": "",
+    "main": "index.js",
+    "license": "ISC",
+    "copyright": "Cake Agency",
+    "dependencies": {
+      "lazysizes": "^5.3.2"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.15.5",
+      "@babel/preset-env": "^7.15.6",
+      "babelify": "^10.0.0",
+      "browserify": "^17.0.0",
+      "gulp": "^4.0.2",
+      "gulp-clean-css": "^4.3.0",
+      "gulp-rename": "^2.0.0",
+      "gulp-sass": "^5.0.0",
+      "gulp-uglify": "^3.0.2",
+      "node-sass": "^4.14.1",
+      "vinyl-buffer": "^1.0.1",
+      "vinyl-source-stream": "^2.0.0"
+    },
+    "scripts": {
+      "start": "gulp",
+      "build": "gulp build"
+    }
+  }
+  
