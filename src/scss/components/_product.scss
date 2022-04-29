@@ -1,0 +1,27 @@
+.page-product {
+    .wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+    .images {
+        width: 50%;
+        .main {
+            margin-bottom: .5em;
+        }
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .details {
+        width: 45%;
+        .price {
+            margin-bottom: 1em;
+        }
+        form {
+            margin-bottom: 1em;
+        }
+    }
+}

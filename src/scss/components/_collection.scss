@@ -1,0 +1,19 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 3em;
+    gap: 2em 5%;
+    .product {
+        width: 30%;
+        @media screen and (max-width:$w-m) {
+            width: 47.5%;
+        }
+    }
+    a {
+        display: block;
+    }
+    img {
+        width: 100%;
+    }
+}

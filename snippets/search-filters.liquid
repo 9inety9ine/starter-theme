@@ -1,0 +1,82 @@
+<div class="filters">
+    {%- for filter in search.filters -%}
+        {% if filter.values.size >= 2 or filter.type == "price_range" %}
+        <div class="filter-group">
+            <div class="filter-group-summary">{{ filter.label }}</div>
+            <div class="filter-group-display">
+            {%- case filter.type -%}
+                {%- when 'boolean' or 'list' -%}
+                <ul class="filter-group-display__list">
+                    {%- for filter_value in filter.values -%}
+                    <li class="filter-group-display__list-item {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}">
+                        <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                        <input type="checkbox"
+                        name="{{ filter_value.param_name }}"
+                        class="search-filter-option"
+                        value="{{ filter_value.value }}"
+                        id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                        {% if filter_value.active -%}checked{%- endif %}
+                        {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+                        ><span>{{ filter_value.label }}</span></label>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+                {%- when 'price_range' -%}
+                <div class="filter-group-display__price-range">
+                    <div class="filter-group-display__price-range-from">
+                    <label for="Filter-{{ filter.min_value.param_name }}">From: <span>
+                    <input name="{{ filter.min_value.param_name }}"
+                        id="Filter-{{ filter.min_value.param_name }}"
+                        {% if filter.min_value.value -%}
+                        value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                        {%- endif %}
+                        type="number"
+                        placeholder="0"
+                        min="0"
+                        max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    ></span></label>
+                    </div>
+                    <div class="filter-group-display__price-range-to">
+                    <label for="Filter-{{ filter.max_value.param_name }}">To: <span>
+                    <input name="{{ filter.max_value.param_name }}"
+                        id="Filter-{{ filter.max_value.param_name }}"
+                        {% if filter.max_value.value -%}
+                        value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                        {%- endif %}
+                        type="number"
+                        placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                        min="0"
+                        max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    ></span></label>
+                    </div>
+                </div>
+            {%- endcase -%}
+            </div>
+        </div>
+        {% endif %}
+    {%- endfor -%}
+    <div class="active-filters">
+        {% assign filter_count = 0 %}
+        {%- for filter in search.filters -%}
+            {%- if filter.type == "price_range" -%}
+            {% assign has_range = false %}
+            {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                {% assign has_range = true %}
+                <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+                {%- assign min_value = filter.min_value.value | default: 0 -%}
+                {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                {{ min_value | money }} - {{ max_value | money }}
+                </a>
+            {%- endif -%}
+            {%- else -%}
+            {%- for filter_value in filter.active_values -%}
+                {% assign filter_count = filter_count | plus: 1 %}
+                <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">{{ filter_value.label }}</a>
+            {%- endfor -%}
+            {%- endif- %}
+        {%- endfor -%}
+        {% if filter_count >= 1 or has_range == true %}
+        <a href="/search?q={{ search.terms }}&type=product" class="active-filters__clear">Clear all</a>
+        {% endif %}
+    </div>
+</div>

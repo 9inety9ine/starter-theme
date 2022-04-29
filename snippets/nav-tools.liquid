@@ -1,0 +1,11 @@
+<nav class="tools" role="navigation">
+    <ul class="menu">
+    {% unless template contains "search" %}
+        <li class="menu-link menu-link-search"><a href="/search"><span>Search</span><img src="{{ "icon-tools-search.svg" | asset_url }}"></a></li>
+    {% endunless %}
+        <li class="menu-link menu-link-account"><a href="/account"><span>Account</span><img src="{{ "icon-tools-account.svg" | asset_url }}"></a></li>
+    {% unless template contains "cart" %}
+        <li class="menu-link menu-link-cart"><a href="/cart" onclick="return Drawer.click('cart',true)"><span>Cart</span><img src="{{ "icon-tools-cart.svg" | asset_url }}"><span class="cart-counter"></span></a></li>
+    {% endunless%}
+    </ul>
+</nav>

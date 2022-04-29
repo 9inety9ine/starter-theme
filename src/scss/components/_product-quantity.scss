@@ -1,0 +1,12 @@
+.quantity {
+    margin-bottom: 1em;
+    display: flex;
+    input[type=number] {
+        max-width: 4em;
+        text-align: center;
+    }
+    button {
+        width: 3em;
+        padding: 0;
+    }
+}

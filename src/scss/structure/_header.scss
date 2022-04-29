@@ -8,4 +8,32 @@ header {
         display: flex;
         align-items: center;
     }
+    .toggle{
+        display: none;
+        margin-right: 2em;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        @media screen and (max-width:$w-l) {
+            display: flex;
+        }
+        @media screen and (max-width:$w-s) {
+            margin-right: 1em;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .branding {
+        width: auto;
+        height: 2em;
+        display: block;
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
 }

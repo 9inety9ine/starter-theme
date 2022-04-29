@@ -1,31 +1,37 @@
-<div class="wrap">
-    <div class="page-title">
-        <h1>{{ page.title }}</h1>
-    </div>
-    <div class="page-content">
-        <h2>New Address</h2>
-        {% form 'customer_address', customer.new_address %}
-        {{ form.errors | default_errors }}
-        <label for="first_name">First Name</label>
-        <input type="text" value="" name="address[first_name]" size="30" />
-        <label for="last_name">Last Name</label>
-        <input type="text" value="" name="address[last_name]" size="30" />
-        <label for="company">Company</label>
-        <input type="text" value="" name="address[company]" />
-        <label for="address1">Address 1</label>
-        <input type="text" value="" name="address[address1]" />
-        <label for="address2">Address 2</label>
-        <input type="text" value="" name="address[address2]" />
-        <label for="city">City</label>
-        <input type="text" value="" name="address[city]" />
-        <label for="country">Country</label>
-        <select name="address[country]" /></select>
-        <label for="province">Province</label>
-        <select name="address[province]" /></select>
-        <label for="zip">Zip/Post Code</label>
-        <input type="text" value="" name="address[zip]" />
-        <label for="phone">Phone Number</label>
-        <input type="tel" value="" name="address[phone]" />
-        {% endform %}
+<div class="page-title">
+    <h1>Your Account</h1>
+</div>
+<div class="page-content account-content">
+    {% render "account-aside", customer: customer %}
+    <div class="main">
+        {% render "account-address-new", customer: customer %}
+        {% render "account-address-edit", customer: customer %}
+        <div class="addresses">
+        {% for address in customer.addresses %}
+            <div class="address" data-address-id="{{ address.id }}">
+                <p><strong>{{ address.first_name }} {{ address.last_name }}</strong></p>
+                <p>{{ address.address1 }}</p>
+                {% if address.address2 != "" %}<p>{{ address.address2 }}</p>{% endif %}
+                <p>{{ customer.address.city}}</p>
+                {% if address.province %}<p class="province">{{ address.province }}</p>{% endif %}
+                <p class="country">{{ address.country }}</p>
+                <p>{{ address.zip }}</p>
+                {% if address.phone %}<p>{{ address.phone }}</p>{% endif %}
+                {% if address == customer.default_address %}<span>Default</span>{% endif %}
+                <div class="actions">
+                    <button data-address-id="{{address.id}}" class="edit" type="button">Edit</button>
+                    {% unless address == customer.default_address %}
+                    <form class="address-delete-form" method="post" action="/account/addresses/{{ address.id }}">
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit">Delete</button>
+                    </form>
+                    {% endunless %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="actions">
+            <a href="#" class="btn add-new">Add New Address</a>
+        </div>
     </div>
 </div>

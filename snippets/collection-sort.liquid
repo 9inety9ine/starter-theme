@@ -1,0 +1,16 @@
+<div class="sort">
+    <div class="sort-by--container">
+      <select id="sort-by" class="sort-by">
+        {% for option in collection.sort_options %}
+          <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>{{ option.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="count">
+      {% if collection.products.size == 0 %}
+        <span>0 Products</span>
+        {% else %}
+        <span>{{ collection.products.size }} Product{%- unless collection.products.size == 1 -%}s{% endunless %}</span>
+      {% endif %}
+    </div>
+</div>

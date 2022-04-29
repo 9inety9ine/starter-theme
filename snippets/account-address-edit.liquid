@@ -1,0 +1,57 @@
+{% for address in customer.addresses %}
+<div class="address address-edit" id="{{address.id}}">
+    <h2>Edit Address</h2>
+    {% form 'customer_address', address, data-address: "root", class: "account" %}
+        <div class="row">
+            <label for="AddressFirstName">{{ 'customer.addresses.first_name' | t }}</label>
+            <input type="text" id="AddressFirstName" name="address[first_name]" value="{{ form.first_name }}">
+        </div>
+        <div class="row">
+            <label for="AddressLastName">{{ 'customer.addresses.last_name' | t }}</label>
+            <input type="text" id="AddressLastName" name="address[last_name]" value="{{ form.last_name }}">
+        </div>    
+        <div class="row" style="display:none">
+            <label for="AddressCompany">{{ 'customer.addresses.company' | t }}</label>
+            <input type="text" id="AddressCompany" name="address[company]" value="{{ form.company }}">
+        </div>    
+        <div class="row">
+            <label for="AddressAddress1">{{ 'customer.addresses.address1' | t }}</label>
+            <input type="text" id="AddressAddress1" name="address[address1]" value="{{ form.address1 }}">
+        </div>    
+        <div class="row" style="display:none">
+            <label for="AddressAddress2">{{ 'customer.addresses.address2' | t }}</label>
+            <input type="text" id="AddressAddress2" name="address[address2]" value="{{ form.address2 }}">
+        </div>    
+        <div class="row">
+            <label for="AddressCity">{{ 'customer.addresses.city' | t }}</label>
+            <input type="text" id="AddressCity" name="address[city]" value="{{ form.city }}">
+        </div>    
+        <div class="row">
+            <label for="AddressCountry">{{ 'customer.addresses.country' | t }}</label>
+            <select id="AddressCountry" name="address[country]" data-default="{{ form.country }}"></select>
+        </div>    
+        <div class="row">
+            <label for="AddressProvince">{{ 'customer.addresses.province' | t }}</label>
+            <select id="AddressProvince" name="address[province]" data-default="{{ form.province }}"></select>
+        </div>    
+        <div class="row">
+            <label for="AddressZip">{{ 'customer.addresses.zip' | t }}</label>
+            <input type="text" id="AddressZip" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+        </div>    
+        <div class="row">
+            <label for="AddressPhone">{{ 'customer.addresses.phone' | t }}</label>
+            <input type="tel" id="AddressPhone" name="address[phone]" value="{{ form.phone }}">
+        </div>  
+        <div class="row default">
+        {% if address == customer.default_address %}
+            <span><i class="fa-solid fa-check"></i> Default</span>
+        {% else %}
+            <label class="checkbox">{{ form.set_as_default_checkbox }} <span>Set as Default Address?</span></label>
+        {% endif %}
+        </div>
+        <div class="row add">
+            <button class="btn" type="submit">Update Address</button> <a href="#" class="cancel">Cancel</a>
+        </div>
+    {% endform %}
+</div>
+{% endfor %}

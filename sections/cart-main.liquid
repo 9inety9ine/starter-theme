@@ -1,0 +1,41 @@
+<div class="page-title">
+    <h1>Cart</h1>
+</div>
+<div class="page-content">
+    {% if cart.item_count > 0 %}
+      <!--[cart-body]-->
+      <form action="/cart" method="post" novalidate>
+        <div class="cart-items">
+            <!--[cart-items]-->
+            {% for item in cart.items %}
+              <div class="cart-item">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="item-remove">remove</a>
+                <div class="item-image"><a href="{{ item.url | within: collections.all }}"><img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}"></a></div>
+                <div class="item-title"><h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3></div>
+                <div class="item-variant">{{ item.variant.title }}</div>
+                <div class="item-price">{{ item.price | money }}</div>
+                <div class="item-quantity">{% render "cart-quantity", item: item %}</div>
+              </div>
+            {% endfor %}
+            <!--[/cart-items]-->
+        </div>
+        <div class="cart-actions">
+          <!--[cart-total]--><p>{{ cart.total_price | money }}</p><!--[/cart-total]-->
+          <button type="submit" name="checkout" class="btn">Checkout</button>
+        </div>
+      </form>
+      <!--[/cart-body]-->
+    {% else %}
+      <!--[empty-cart]-->
+      <p>Cart is empty</p>
+      <!--[/empty-cart]-->
+    {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "div",
+  "class": "container"
+}
+{% endschema %}

@@ -1,0 +1,9 @@
+.btn {
+    text-decoration: none;
+    background-color: $color-primary;
+    height: 3em;
+    &.highlight {
+        border-color: $color-highlight;
+        color: $color-highlight;
+    }
+}

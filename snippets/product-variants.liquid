@@ -1,0 +1,18 @@
+{% assign first = product.first_available_variant.id %}
+<ul class="variants" {% if product.variants.size == 1 %}style="display:none!important"{% endif %}>
+    {% for variant in product.variants %}
+        <li>
+            {% if variant.available %}
+                <label for="radio_{{ variant.id }}" class="type-{{ variant.title | handleize }} {% if variant.id == first %}active{% endif %}">
+                    <input type="radio" name="id" value="{{ variant.id }}" id="radio_{{ variant.id }}" {% if variant.id == first %}checked="checked"{% endif %} />
+                    <span>{{ variant.title }}</span>
+                </label>
+            {% else %}
+                <label for="radio_{{ variant.id }}" class="disabled type-{{ variant.title | handleize }}">
+                    <input type="radio" name="id" value="{{ variant.id }}" id="radio_{{ variant.id }}" disabled="disabled" />
+                    <span>{{ variant.title }}</span>
+                </label>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

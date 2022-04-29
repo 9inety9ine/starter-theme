@@ -1,0 +1,7 @@
+<div class="add-to-cart">
+{% if product.available %}
+    <button type="submit" name="add" class="btn highlight">Add to cart</button>
+{% else %}
+    <button class="btn" disabled>Sold Out</button>
+{% endif %}
+</div>

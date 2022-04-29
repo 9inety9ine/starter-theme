@@ -1,0 +1,12 @@
+<div class="sort">
+    <div class="sort-by--container">
+      <select id="sort-by" class="sort-by">
+        {% for option in search.sort_options %}
+          <option value="{{ option.value }}"{% if option.value == search.sort_by %} selected{% endif %}>{{ option.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="count">
+        <span>{{ count }} Result{%- unless count == 1 -%}s{% endunless %}</span>
+    </div>
+</div>

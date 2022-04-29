@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "product-images": {
+      "type": "product-images",
+      "settings": {}
+    },
+    "product-details": {
+      "type": "product-details",
+      "settings": {}
+    }
+  },
+  "order": [
+    "product-images",
+    "product-details"
+  ]
+}

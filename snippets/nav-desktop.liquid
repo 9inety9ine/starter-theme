@@ -1,0 +1,27 @@
+<nav class="desktop" role="navigation">
+    <ul class="menu">
+        {% for link in linklists.main-menu.links %}
+        <li class="menu-link {% if link.links.size > 0 %}has-sub{% endif %}">
+        <a href="{{ link.url }}">{{ link.title }} {% if link.links.size > 0 %}<i class="fa-solid fa-caret-down"></i>{% endif %}</a>
+        {% if link.links.size > 0 %}
+            <ul class="menu-sub">
+                {% for child_link in link.links %}
+                <li class="menu-link {% if child_link.links.size > 0 %}has-sub-sub{% endif %}">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}{% if child_link.links.size > 0 %}<i class="fa-solid fa-caret-down"></i>{% endif %}</a>
+                    {% if child_link.links.size > 0 %}
+                    <ul class="menu-sub-sub">
+                        {% for grandchild_link in child_link.links %}
+                        <li class="menu-link">
+                            <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

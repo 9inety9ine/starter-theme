@@ -1,0 +1,18 @@
+<div class="product-card">
+    {% form "product", product %}
+        <div class="image {% unless product.available %}sold-out{% endunless %}">
+            <a href="{{ product.url | within: collection }}">
+                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+            </a>
+        </div>
+        <div class="details">
+            <h3><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
+            {% render "product-price", product: product %}
+            <div class="actions">
+                {% render "product-variants", product: product %}
+                <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
+                {% render "product-add-to-cart", product: product %}
+            </div>
+        </div>
+    {% endform %}
+</div>

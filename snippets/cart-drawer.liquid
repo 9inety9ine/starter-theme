@@ -1,0 +1,20 @@
+<div id="cart-drawer-container">
+    <div id="cart-drawer">
+        <form action="/cart" method="post">
+            <button type="button" class="close" onclick="return Drawer.click('cart',true)">Close</button>
+            <h2>Your Cart</h2>
+            <div id="drawer-cart-body"></div>
+            <div id="drawer-cart-foot">
+                <div id="drawer-cart-total"></div>
+                <div class="actions">
+                    <button name="checkout" class="btn checkout">Checkout</button>
+                    <div class="drawer-cart-links">
+                        <a href="{{ shop.url }}/cart" class="view">View Your Cart</a>
+                        <a href="#" onclick="return Drawer.click('cart',true)" class="continue">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="curtain"></div>

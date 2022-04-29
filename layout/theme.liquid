@@ -7,19 +7,31 @@
     <meta name="description" content="{{ page_description | escape }}">
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
     {{ content_for_header }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
     {{ 'application.css' | asset_url | stylesheet_tag }}
   </head>
-  <body>
-  
+  <body class="page-{{ template | handleize }}">
+    
+    {% render 'nav-mobile' %}
+    {% render 'cart-drawer' %}
+    {% render "search-box" %}
     {% section "header" %}
   
     <main role="main">
+      <div class="wrap">
       {{ content_for_layout }}
+      </div>
     </main>
   
     {% section "footer" %}
-  
+
+    <script src="//code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {{ 'predictive-search.js' | asset_url | script_tag }}
+    {{ 'shopify_common.js' | asset_url | script_tag }}
     {{ 'application.js' | asset_url | script_tag }}
   
   </body>

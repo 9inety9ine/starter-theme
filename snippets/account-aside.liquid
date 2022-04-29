@@ -1,0 +1,29 @@
+{% assign current_page = template | handleize %}
+<aside>
+    <div class="widget">
+        <h4>{{ customer.name }}</h4>
+        <p>{{ customer.email }}</p>
+        {% if customer.default_address.phone %}<p>{{ customer.default_address.phone }}</p>{% endif %}
+    </div>
+    {% if customer.default_address %}
+    <div class="widget">
+        <h4>Default Address</h4>
+        <p>{{ customer.default_address.address1 }}</p>
+        {% if customer.default_address.address2 != "" %}
+            <p>{{ customer.default_address.address2 }}</p>
+        {% endif %}
+        <p>{{ customer.default_address.city}}</p>
+        {% if customer.default_address.province %}<p>{{ customer.default_address.province }}</p>{% endif %}
+        <p>{{ customer.default_address.country }}</p>
+        <p>{{ customer.default_address.zip }}</p>
+    </div>
+    {% endif %}
+    <nav class="aside">
+        <ul class="menu">
+            <li class="menu-link {% if current_page == "customers-account" or current_page == "customers-order" %}active{% endif %}"><a href="{{ shop.url }}/account">Your Orders</a></li>
+            <li class="menu-link {% if current_page == "customers-addresses" %}active{% endif %}"><a href="{{ shop.url }}/account/addresses">Edit Addresses</a></li>
+            <li class="menu-link"><a href="{{ shop.url }}/account/logout">Sign Out</a></li>
+            <li class="menu-link"><a href="{{ shop.url }}">Return to Shop</a></li>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,42 @@
+#cart-drawer-container {
+    position: relative;
+    z-index: 99;
+}
+#cart-drawer {
+    padding: 2em;
+    width: $w-s;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -425px;
+    max-width: 100%;
+    background: $color-primary;
+    overflow: auto;
+    .close {
+        position: absolute;
+        top: 2em;
+        right: 2em;
+    }
+}
+.drawer-open {
+    #cart-drawer {
+        right: 0;
+    }
+}
+#curtain {
+    background-color: rgba(0,0,0,.35);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 89;
+    opacity: 0;
+    transform: scale(0);
+}
+.drawer-open {
+    #curtain {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

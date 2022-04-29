@@ -1,7 +1,44 @@
-nav.tools {
-    margin-left: auto;
-    .menu {
-        display: flex;
-        gap: 0 1em;
+header {
+    nav.tools {
+        margin-left: auto;
+        .menu {
+            display: flex;
+            gap: 0 1em;
+            li {
+                position: relative;
+                .cart-counter {
+                    line-height: 1;
+                    display: none;
+                    font-weight: $font-bold;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: .5em;
+                }
+            }
+            a {
+                display: flex;
+                width: auto;
+                height: 1.5em;
+                align-items: center;
+                text-decoration: none;
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+                span {
+                    display: none;
+                }
+            }
+            .menu-link-search {
+                @media screen and (max-width:$w-m) {
+                    display: none;
+                }
+            }
+            .menu-link-account {
+                @media screen and (max-width:$w-m) {
+                    display: none;
+                }
+            }
+        }
     }
 }

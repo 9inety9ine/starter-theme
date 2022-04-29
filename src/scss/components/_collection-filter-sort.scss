@@ -1,0 +1,111 @@
+.filter-sort {
+    display: flex;
+    margin-bottom: 1.5em;
+    justify-content: space-between;
+    .filter-form {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .filters {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        @media screen and (max-width:$w-m) {
+            display: none;
+        }
+    }
+    .active-filters {
+        width: 100%;
+        display: flex;
+        a {
+            display: flex;
+            height: 2em;
+            align-items: center;
+            text-decoration: none;
+            line-height: 1;
+            margin-right: .5em;
+        }
+        &__remove-filter {
+            padding: 0 2.25em 0 1em;
+            border: 1px solid $color-primary;
+            background: transparent url(icon-close.svg) no-repeat calc(100% - .35em) 50%;
+            background-size: 1.15em;
+        }
+        &__clear {
+            padding: 0 1em 0 .5em;
+        }
+    }
+    .filter-group {
+        position: relative;
+        margin-right: 1em;
+        &.open {
+            .filter-group-display {
+                display: block;
+            }
+        }
+    }
+    .filter-group-display {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: $color-primary;
+        border: 1px solid $color-tertiary;
+        padding: .5em 1em;
+        min-width: 8em;
+        &__list-item {
+            white-space: nowrap;
+            margin: .35em 0;
+            label {
+                display: flex;
+                align-items: center;
+            }
+            &.disabled {
+                span {
+                    opacity: .5;
+                }
+            }
+        }
+        &__price-range-to {
+            margin: .5em 0;
+        }
+        &__price-range-from {
+            margin: .5em 0;
+        }
+        input[type=checkbox] {
+            margin-right: .5em;
+        }
+    }
+    .filter-group-summary {
+        display: flex;
+        height: 2em;
+        align-items: center;
+        padding-right: 2em;
+        cursor: pointer;
+        background: transparent url(icon-arrow-down.svg) no-repeat calc(100% - .5em) 50%;
+        background-size: 1em;
+    }
+    .sort {
+        display: flex;
+        align-items: flex-start;
+        height: auto;
+        select {
+            width: auto;
+            display: inline-block;
+        }
+        .count {
+            display: flex;
+            align-items: center;
+            height: 2em;
+            line-height: 1;
+            margin-left: 1em;
+        }
+    }
+    .toggle {
+        display: none;
+        @media screen and (max-width:$w-m) {
+            display: block;
+        }
+    }
+}

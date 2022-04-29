@@ -1,7 +1,12 @@
-nav.desktop {
-    margin-left: 2em;
-    .menu {
-        display: flex;
-        gap: 0 1em;
+header {
+    nav.desktop {
+        margin-left: 2em;
+        @media screen and (max-width:$w-l) {
+            display: none;
+        }
+        .menu {
+            display: flex;
+            gap: 0 1em;
+        }
     }
 }

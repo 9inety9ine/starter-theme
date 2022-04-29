@@ -1,0 +1,19 @@
+#predictive-search {
+    display: none;
+    position: absolute;
+    top: 5em;
+    left: 0;
+    width: 100%;
+    background-color: $color-secondary;
+    border-bottom: 2px solid $color-primary;
+    padding: 2em;
+    .products {
+        margin-bottom: 0;
+        .predictive-search__list-item {
+            width: 20%;
+            .actions {
+                display: none;
+            }
+        }
+    }
+}

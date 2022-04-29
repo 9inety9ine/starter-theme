@@ -1,0 +1,34 @@
+<div class="page-title">
+    <h1>{{ collection.title }}</h1>
+</div>
+<div class="page-content">
+    {% render "collection-filter-sort" %}
+    {% assign count = 0%}
+    {% paginate collection.products by 3 %}
+    <ul class="products" id="products">
+    <!--__BEGIN_PRODUCT_LIST__-->
+    <div class="current-sort" style="display:none;">{{ collection.sort_by }}</div>
+    <div class="current-collection" style="display:none;">{{ collection.url }}</div>
+    {% for product in collection.products %}
+        {% assign count = count | plus: 1 %}
+        <li class="product">{% render "product-card", product: product %}</li>
+    {% else %}
+        <li>No matches...</li>
+    {% endfor %}
+    <!--__END_PRODUCT_LIST__-->
+    </ul>
+    {% if paginate.pages > 1 %}
+    <div class="pagination">
+        {{ paginate | default_pagination: next: '>', previous: '<' }}
+    </div>
+    {% endif %}
+    {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "tag": "div",
+  "class": "container"
+}
+{% endschema %}

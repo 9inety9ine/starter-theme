@@ -1,0 +1,18 @@
+
+<h1>{{ product.title }}</h1>
+{% render "product-price", product: product %}
+{% form "product", product %}
+    {% render "product-variants", product: product %}
+    {% render "product-quantity", product: product %}
+    {% render "product-add-to-cart", product: product %}
+    {% endform %}
+{{ product.description }}
+
+
+{% schema %}
+{
+  "name": "Product Details",
+  "tag": "div",
+  "class": "details"
+}
+{% endschema %}

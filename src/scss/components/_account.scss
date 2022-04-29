@@ -1,0 +1,73 @@
+.account-content {
+    display: flex;
+    aside {
+        width: 20em;
+        h4 {
+            margin-bottom: .25em;
+        }
+        .widget {
+            margin-bottom: .5em;
+        }
+        li {
+            margin-bottom: .5em;
+            &.active {
+                a {
+                    font-weight: $font-bold;
+                }
+            }
+        }
+    }
+    .main {
+        width: calc(100% - 20em);
+    }
+}
+form.account {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .row {
+        width: 49%;
+        margin-bottom: .5em;
+        &.add {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        &.default {
+            width: 100%;
+        }
+    }
+}
+.address-new,
+.address-edit {
+    display: none;
+    border: 1px solid $color-primary;
+    padding: 1.5em;
+    margin-bottom: 1em;
+}
+.addresses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em 1em;
+    margin-bottom: 1em;
+    .address {
+        border: 1px solid $color-primary;
+        padding: 1.5em;
+        width: calc(50% - .5em);
+        position: relative;
+        .actions {
+            position: absolute;
+            right: 1.5em;
+            bottom: 1.5em;
+            display: flex;
+            button {
+                margin-left: .5em;
+            }
+        }
+        span {
+            position: absolute;
+            right: 1.5em;
+            top: 1.5em;
+        }
+    }
+}

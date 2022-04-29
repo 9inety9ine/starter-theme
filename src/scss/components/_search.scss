@@ -1,0 +1,32 @@
+.search-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5em;
+    background-color: $color-primary;
+    width: 100%;
+    z-index: 19;
+    display: none;
+    .wrap {
+        height: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    predictive-search {
+        width: 100%;
+        max-width: $w-m;
+    }
+    .search-input {
+        display: flex;
+        > label {
+            display: none;
+        }
+    }
+}
+.search-main {
+    margin-bottom: 1.5em;
+    display: flex;
+}

@@ -1,26 +1,37 @@
 body {
     background: $color-tertiary;
-    font: 15px $font-regular;
+    font: 15px $font-base;
     color: $color-tertiary;
     line-height: 1.5em;
     -webkit-font-smoothing: antialiased;
+    overflow-y: scroll;
     @media screen and (max-width:$w-s) {
         font-size: 3.53vw;
     }
 }
 h1, h2, h3, h4, h5, h6 {
-    font: 3em $font-bold;
+    font: 3em $font-base;
+    font-weight: $font-bold;
     margin-bottom: .5em;
     line-height: 1em;
+}
+h2, h3 {
+    font-size: 1.5em;
+}
+h4, h5, h6 {
+    font-size: 1em;
 }
 strong {
     font-weight: $font-bold;
 }
 em {
-    font-family: $font-regular-italic;
+    font-style: italic;
 }
 small {
     font-size: .85em;
+}
+del {
+    opacity: .5;
 }
 a {
     color: $color-tertiary;

@@ -1,0 +1,54 @@
+{% paginate search.results by 999 %}
+
+  <form action="/search" method="get" role="search" class="search-main">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search">
+    <button class="search-clear">Clear</button>
+    <input type="hidden" name="type" value="product">
+  </form>
+
+  {% assign count = 0 %}
+
+  {% if search.performed %}
+
+    {% for item in search.results %}
+      {% if item.object_type == 'product' %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% if count == 0 %}
+      <p class="result-count">No results...</p>
+      {% else %}
+      {% render "search-filter-sort", count: count %}
+    {% endif %}
+
+    <ul class="products" id="products">
+      <!--__BEGIN_PRODUCT_LIST__-->
+    <div class="current-sort" style="display:none;">{{ search.sort_by }}</div>
+    <div class="current-search" style="display:none;">{{ search.terms }}</div>
+    {% for item in search.results %}
+      {% if item.object_type == 'product' %}
+        <li class="product">{% render "product-card", product: item %}</li>
+      {% endif %}
+    {% endfor %}
+    <!--__END_PRODUCT_LIST__-->
+    </ul>
+
+  {% endif %}
+
+  {% if paginate.pages > 1 %}
+    <div class="pagination">
+        {{ paginate | default_pagination: next: '>', previous: '<' }}
+    </div>
+  {% endif %}
+
+{% endpaginate %}
+
+
+{% schema %}
+{
+  "name": "Search",
+  "tag": "div",
+  "class": "container"
+}
+{% endschema %}

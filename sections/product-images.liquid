@@ -1,0 +1,17 @@
+<ul>
+    {% for image in product.images %}
+    <li>
+        <a href="{{ image | img_url: 'master' }}">
+        <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt | escape }}">
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% schema %}
+{
+  "name": "Product Images",
+  "tag": "div",
+  "class": "images"
+}
+{% endschema %}
