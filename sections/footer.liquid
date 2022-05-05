@@ -1,5 +1,13 @@
 <div class="wrap">
     
+    <a href="{{ shop.url }}" class="branding">
+      {% if section.settings.footer_logo != blank %}
+      <img src="{{ section.settings.footer_logo | img_url: "master" }}" alt="{{ shop.name }}">
+      {% else %}
+      BRANDING
+      {% endif %}
+    </a>
+    
     <p>Footer</p>
 
 </div>
@@ -8,6 +16,13 @@
 {
   "name": "Footer",
   "tag": "footer",
-  "class": "main"
+  "class": "main",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer Branding"
+    }
+  ]
 }
 {% endschema %}

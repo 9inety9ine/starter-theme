@@ -29,8 +29,9 @@ header {
     }
     .branding {
         width: auto;
-        height: 2em;
-        display: block;
+        height: 2.5em;
+        display: flex;
+        align-items: center;
         img {
             height: 100%;
             width: auto;

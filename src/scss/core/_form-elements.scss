@@ -17,6 +17,9 @@ select {
     &:focus {
         outline: none;
     }
+    &:disabled {
+        opacity: .35;
+    }
 }
 select {
     padding: 0 0 0 .75em;

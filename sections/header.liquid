@@ -2,7 +2,13 @@
 
     <button class="toggle"><img src="{{ "icon-menu.svg" | asset_url }}"></button>
     
-    <a href="{{ shop.url }}" class="branding"><img src="{{ "logo-placeholder.svg" | asset_url }}"></a>
+    <a href="{{ shop.url }}" class="branding">
+      {% if section.settings.header_logo != blank %}
+      <img src="{{ section.settings.header_logo | img_url: "master" }}" alt="{{ shop.name }}">
+      {% else %}
+      BRANDING
+      {% endif %}
+    </a>
 
     {% render "nav-desktop" %}
     
@@ -26,6 +32,11 @@
       "type": "checkbox",
       "id": "sticky",
       "label": "Enable sticky header"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_logo",
+      "label": "Header Branding"
     }
   ]
 }

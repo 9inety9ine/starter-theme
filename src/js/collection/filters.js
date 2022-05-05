@@ -56,6 +56,19 @@ $('#collection-filter-form .filter-group-summary').on('click', function(){
     }
 });
 
-$('#collection-filter-form .filter-sort .toggle').on('click', function(){
+$('#collection-filter-form-mobile .filter-group-summary').on('click', function(){
+    if ($(this).parent().hasClass('open')) {
+        $(this).parent().removeClass('open');
+    } else {
+        $(this).parent().addClass('open');
+    }
+});
+
+$('.filters .toggle').on('click', function(){
+    $('.collection-filters-mobile').toggle();
+    return false;
+});
+$('.collection-filters-mobile .mask').on('click', function(){
+    $('.collection-filters-mobile').hide();
     return false;
 });

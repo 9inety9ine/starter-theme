@@ -1,5 +1,6 @@
 <div class="quantity">
-    <button class="increment down" type="button">-</button>
-    <input type="number" id="Quantity" name="quantity" value="1" min="1" readonly>
-    <button class="increment up" type="button">+</button>
+    <button class="increment down" type="button"{% unless product.available %} disabled{% endunless %}>-</button>
+    <input type="number" id="Quantity" name="quantity" value="1" min="1" readonly{% unless product.available %} class="disabled" disabled{% endunless %}>
+    <button class="increment up" type="button"{% unless product.available %} disabled{% endunless %}>+</button>
 </div>
+

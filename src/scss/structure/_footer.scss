@@ -1,3 +1,10 @@
 footer {
     color: $color-primary;
+    a {
+        color: $color-primary;
+    }
+    .branding {
+        display: block;
+        margin-bottom: 1em;
+    }
 }

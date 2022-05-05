@@ -1,4 +1,5 @@
 <div class="filters">
+    <button class="toggle">Filters</button>
     {%- for filter in collection.filters -%}
         {% if filter.values.size >= 2 or filter.type == "price_range" %}
         <div class="filter-group">

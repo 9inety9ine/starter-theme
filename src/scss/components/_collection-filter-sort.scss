@@ -2,6 +2,8 @@
     display: flex;
     margin-bottom: 1.5em;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
     .filter-form {
         display: flex;
         width: 100%;
@@ -11,9 +13,6 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        @media screen and (max-width:$w-m) {
-            display: none;
-        }
     }
     .active-filters {
         width: 100%;
@@ -39,6 +38,9 @@
     .filter-group {
         position: relative;
         margin-right: 1em;
+        @media screen and (max-width:$w-m) {
+            display: none;
+        }
         &.open {
             .filter-group-display {
                 display: block;

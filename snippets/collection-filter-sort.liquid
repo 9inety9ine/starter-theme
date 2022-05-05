@@ -1,7 +1,6 @@
 {% unless collection.products.size == 0 %}
 <div class="filter-sort">
     <form class="filter-form" id="collection-filter-form">
-        <button class="toggle">Filters</button>
         {% render "collection-filters" %}
         {% render "collection-sort" %}
     </form> 
