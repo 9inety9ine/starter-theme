@@ -6,5 +6,99 @@
     "theme_author": "Shopify",
     "theme_documentation_url": "https://github.com/Shopify/themekit",
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
+  },
+  {
+    "name": "Product Options",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "type": "radio",
+        "id": "slider_display",
+        "label": "Image Slider",
+        "options": [
+          {
+            "value": "desktop",
+            "label": "Mobile Only"
+          },
+          {
+            "value": "mobile",
+            "label": "Mobile & Desktop"
+          }
+        ],
+        "default": "desktop",
+        "info": "This setting defines whether the image slider will be displayed on both desktop and mobile devices, or only on mobile devices."
+      },
+      {
+        "type": "header",
+        "content": "Description"
+      },
+      {
+        "type": "checkbox",
+        "id": "description",
+        "label": "Enable Tab",
+        "info": "Enable this setting to move the product description into a collapsing tab."
+      },
+      {
+        "type": "checkbox",
+        "id": "description_open",
+        "label": "Start Open",
+        "info": "Enable this setting to have the description tab open by default."
+      },
+      {
+        "type": "header",
+        "content": "Stickers"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale",
+        "label": "Sale Sticker",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_stock",
+        "label": "Stock Sticker",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_new",
+        "label": "New Sticker",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "show_new_time",
+        "label": "New Time",
+        "info": "Number of days a product stays 'new' for.",
+        "default": 14
+      }
+    ]
+  },
+  {
+    "name": "SEO Settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Share Image",
+        "info": "This image will appear as the thumbnail when a non-product/non-article page is shared on social media (size: 1200x1200)."
+      },
+      {
+        "type": "text",
+        "id": "short_description",
+        "label": "Shop Short Description",
+        "info": "This will appear next to the shop name on the homepage browser tab."
+      },
+      {
+        "type": "textarea",
+        "id": "long_description",
+        "label": "Shop Long Description",
+        "info": "This will appear on search results that return the homepage, should contain common keywords and be limited to 150 - 160 characters."
+      }
+    ]
   }
 ]

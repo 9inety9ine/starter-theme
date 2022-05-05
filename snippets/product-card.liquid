@@ -1,12 +1,13 @@
-<div class="product-card">
+<div class="product-card" itemscope itemtype="https://schema.org/Product">
     {% form "product", product %}
         <div class="image {% unless product.available %}sold-out{% endunless %}">
+            {% render "product-stickers", product: product %}
             <a href="{{ product.url | within: collection }}">
-                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image">
             </a>
         </div>
         <div class="details">
-            <h3><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
+            <h3 itemprop="name"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
             {% render "product-price", product: product %}
             <div class="actions">
                 {% render "product-variants", product: product %}

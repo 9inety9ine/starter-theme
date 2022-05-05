@@ -27,8 +27,16 @@ if (filterForm) {
     let filterInputElements = filterForm.querySelectorAll('input[type="checkbox"]');
     for (let i = 0; i < filterInputElements.length; i++) {
         filterInputElements[i].addEventListener('change', function() {
-            $(this).closest('.filter-group').removeClass('open');
-            filterForm.dispatchEvent(new Event('submit'));
+            if ($(this).is(':checked')) {
+                filterForm.dispatchEvent(new Event('submit'));
+                $(this).closest('.filter-group').removeClass('open')
+            } else {
+                var filter_target = $(this).data('filter');
+                var new_url = $('.active-filters a.' + filter_target).attr('href');
+                //console.log(new_url);
+                window.location = new_url;
+                return false;
+            }
         });
     }
     let filterPrices = filterForm.querySelectorAll('input[type="number"]');
@@ -38,6 +46,7 @@ if (filterForm) {
         });
     }
 }
+
 $('#collection-filter-form .filter-group-summary').on('click', function(){
     if ($(this).parent().hasClass('open')) {
         $(this).parent().removeClass('open');

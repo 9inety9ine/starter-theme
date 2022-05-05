@@ -1,18 +1,17 @@
-
-<div class="page-title">
-    <h1>{{ page.title }}</h1>
-</div>
-<div class="page-content">
-    {% form 'create_customer', class: "account register" %}
-    {{ form.errors | default_errors }}
-    <label for="first_name">First Name</label>
-    <input type="text" value="" name="customer[first_name]" size="30" />
-    <label for="last_name">Last Name</label>
-    <input type="text" value="" name="customer[last_name]" size="30" />
-    <label for="email">Email Address</label>
-    <input type="email" value="" name="customer[email]" size="30" />
-    <label for="password">Password</label>
-    <input type="password" value="" name="customer[password]" size="30" />
-    <input type="submit" value="Create" />
-    {% endform %}
+<div class="page-content account-form">
+    <div class="register">
+        <h2>Register</h2>
+        {% form 'create_customer', class: "account register" %}
+        {{ form.errors | default_errors }}
+        <label for="first_name">First Name</label>
+        <input type="text" value="" name="customer[first_name]" size="30" />
+        <label for="last_name">Last Name</label>
+        <input type="text" value="" name="customer[last_name]" size="30" />
+        <label for="email">Email Address</label>
+        <input type="email" value="" name="customer[email]" size="30" />
+        <label for="password">Password</label>
+        <input type="password" value="" name="customer[password]" size="30" />
+        <button type="submit">Create Account</button>
+        {% endform %}
+    </div>
 </div>

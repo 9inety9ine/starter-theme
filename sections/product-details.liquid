@@ -1,13 +1,15 @@
-
-<h1>{{ product.title }}</h1>
-{% render "product-price", product: product %}
-{% form "product", product %}
+<div itemscope itemtype="https://schema.org/Product">
+  {% render "product-stickers", product: product %}
+  <h1 itemprop="name">{{ product.title }}</h1>
+  {% render "product-price", product: product %}
+  {% if settings.description == false %}{% render "product-description", product: product %}{% endif %}
+  {% form "product", product %}
     {% render "product-variants", product: product %}
     {% render "product-quantity", product: product %}
     {% render "product-add-to-cart", product: product %}
-    {% endform %}
-{{ product.description }}
-
+  {% endform %}
+  {% render "product-tabs", product: product %}
+</div>
 
 {% schema %}
 {

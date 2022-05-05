@@ -1,8 +1,8 @@
-<p class="price">
-    {% if product.compare_at_price %}
-        <span><del>{{ product.compare_at_price | money }}</del></span>
-        <span>{{ product.price | money }}</span>
-    {% else %}
-        <span>{{ product.price | money }}</span>
-    {% endif %}
+<p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+{%- if product.compare_at_price -%}
+    <span><del>{{ product.compare_at_price | money }}</del></span>
+    <span itemprop="price" content="{{ product.price | money_without_currency }}">{{ product.price | money }}</span>
+{%- else -%}
+    <span itemprop="price" content="{{ product.price | money_without_currency }}">{{ product.price | money }}</span>
+{%- endif -%}
 </p>

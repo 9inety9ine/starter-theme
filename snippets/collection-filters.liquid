@@ -11,6 +11,7 @@
                     <li class="filter-group-display__list-item {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}">
                         <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
                         <input type="checkbox"
+                        data-filter="filter-{{ filter_value.value | handleize}}"
                         name="{{ filter_value.param_name }}"
                         value="{{ filter_value.value }}"
                         id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
@@ -70,7 +71,7 @@
             {%- else -%}
             {%- for filter_value in filter.active_values -%}
                 {% assign filter_count = filter_count | plus: 1 %}
-                <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">{{ filter_value.label }}</a>
+                <a class="active-filters__remove-filter filter-{{ filter_value.value | handleize}}" href="{{ filter_value.url_to_remove }}">{{ filter_value.label }}</a>
             {%- endfor -%}
             {%- endif- %}
         {%- endfor -%}

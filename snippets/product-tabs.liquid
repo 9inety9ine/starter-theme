@@ -1,0 +1,8 @@
+<div class="tabs">
+    {% if settings.description == true %}
+    <details class="tab"{% if settings.description_open == true %} open{% endif%}>
+        <summary>Product Description</summary>
+        {% render "product-description" %}
+    </details>
+    {% endif%}
+</div>

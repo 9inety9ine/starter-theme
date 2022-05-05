@@ -1,8 +1,18 @@
 .product-card {
+    position: relative;
     .image {
         margin-bottom: 1em;
     }
     .price {
         margin-bottom: .5em;
+    }
+    .stickers {
+        position: absolute;
+        left: .5em;
+        top: .5em;
+        line-height: 1;
+        span {
+            display: block;
+        }
     }
 }

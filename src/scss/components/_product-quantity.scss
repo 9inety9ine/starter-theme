@@ -8,5 +8,11 @@
     button {
         width: 3em;
         padding: 0;
+        &:first-of-type{
+            border-right: none;
+        }
+        &:last-of-type{
+            border-left: none;
+        }
     }
 }

@@ -21,7 +21,7 @@
         width: calc(100% - 20em);
     }
 }
-form.account {
+form.address {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -34,6 +34,33 @@ form.account {
         }
         &.default {
             width: 100%;
+        }
+    }
+}
+.account-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: $w-s;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    > div {
+        width: 100%;
+    }
+    .forgot-password {
+        display: none;
+    }
+    form {
+        width: 100%;
+        label {
+            display: block;
+        }
+        input,
+        textarea {
+            margin-bottom: 1em;
+        }
+        button {
+            margin-bottom: 1em;
         }
     }
 }
@@ -68,6 +95,21 @@ form.account {
             position: absolute;
             right: 1.5em;
             top: 1.5em;
+        }
+    }
+}
+table {
+    width: 100%;
+    th {
+        text-align: left;
+        &:last-child {
+            text-align: right;
+        }
+    }
+    td {
+        text-align: left;
+        &:last-child {
+            text-align: right;
         }
     }
 }

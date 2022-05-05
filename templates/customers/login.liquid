@@ -1,22 +1,25 @@
-
-<div class="page-title">
-    <h1>{{ page.title }}</h1>
-</div>
-<div class="page-content">
-    {% form 'customer_login', class: "account login" %}
-    {{ form.errors | default_errors }}
-    <label for="customer_email">Email Address</label>
-    <input type="email" name="customer[email]" />
-    <label for="customer_password">Password</label>
-    <input type="password" name="customer[password]" />
-    <input type="submit" value="Sign In" />
-    <a href="/account/register">Register</a>
-    {% endform %}
-    <h2>Forgot Password</h2>
-    {% form 'recover_customer_password' %}
-    {{ form.errors | default_errors }}
-    <label for="customer_email">Email Address</label>
-    <input type="email" name="email" />
-    <input type="submit" value="Submit" />
-    {% endform %}
+<div class="page-content account-form">
+    <div class="sign-in">
+        <h2>Sign In</h2>
+        {% form 'customer_login', class: "account login" %}
+        {{ form.errors | default_errors }}
+        <label for="customer_email">Email Address</label>
+        <input type="email" name="customer[email]" />
+        <label for="customer_password">Password</label>
+        <input type="password" name="customer[password]" />
+        <button type="submit">Sign In</button>
+        <a href="/account/register" class="register">Register</a>
+        <a href="#" class="forgot">Forgot Password</a>
+        {% endform %}
+    </div>
+    <div class="forgot-password">
+        <h2>Forgot Password</h2>
+        {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+        <label for="customer_email">Email Address</label>
+        <input type="email" name="email" />
+        <button type="submit">Submit</button>
+        <a href="#" class="cancel">Cancel</a>
+        {% endform %}
+    </div>
 </div>

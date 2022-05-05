@@ -1,12 +1,35 @@
-<ul>
-    {% for image in product.images %}
-    <li>
-        <a href="{{ image | img_url: 'master' }}">
-        <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt | escape }}">
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+{% if settings.slider_display == "desktop" %}
+  <div class="product-images desktop-images">
+    <button class="prev">Previous</button>
+    <ul class="desktop">
+        {% for image in product.images %}
+        <li id="image-{% increment large-count%}"><a href="{{ image | img_url: 'master' }}" data-fancybox="gallery"><img src="{{ image | img_url: 'master' }}" alt="{{ image.alt | escape }}"></a></li>
+        {% endfor %}
+    </ul>
+    <button class="next">Next</button>
+  </div>
+  <ul class="desktop-thumbnails">
+      {% for image in product.images %}
+      <li><a href="#image-{% increment small-count%}"><img src="{{ image | img_url: 'small' }}" alt=""></a></li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% if settings.slider_display == "mobile" %}
+    <div class="product-images mobile-images">
+      <button class="prev">Previous</button>
+      <ul class="mobile">
+          {% for image in product.images %}
+          <li id="image-{% increment large-count%}"><a href="{{ image | img_url: 'master' }}" data-fancybox="gallery"><img src="{{ image | img_url: 'master' }}" alt="{{ image.alt | escape }}"></a></li>
+          {% endfor %}
+      </ul>
+      <ul class="mobile-thumbnails">
+          {% for image in product.images %}
+          <li><a href="#image-{% increment small-count%}"><img src="{{ image | img_url: 'small' }}" alt=""></a></li>
+          {% endfor %}
+      </ul>
+      <button class="next">Next</button>
+    </div>
+    {% endif %}
 
 {% schema %}
 {

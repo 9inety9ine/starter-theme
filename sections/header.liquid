@@ -10,10 +10,23 @@
 
 </div>
 
+{% if section.settings.sticky == true %}
+<style type="text/css">
+  header { position: sticky; top: 0; z-index: 9; }
+</style>
+{% endif %}
+
 {% schema %}
 {
   "name": "Header",
   "tag": "header",
-  "class": "main"
+  "class": "main",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Enable sticky header"
+    }
+  ]
 }
 {% endschema %}

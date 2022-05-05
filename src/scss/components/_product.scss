@@ -2,11 +2,15 @@
     .wrap {
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width:$w-m) {
+            flex-wrap: wrap;
+        }
     }
     .images {
         width: 50%;
-        .main {
-            margin-bottom: .5em;
+        @media screen and (max-width:$w-m) {
+            width: 100%;
+            margin-bottom: 2em;
         }
         a {
             display: block;
@@ -14,9 +18,68 @@
         img {
             width: 100%;
         }
+        .product-images {
+            position: relative;
+        }
+        .desktop-images {
+            button {
+                display: none;
+                @media screen and (max-width:$w-m) {
+                    display: inline-block;
+                }
+            }
+        }
+        .desktop {
+            overflow: auto;
+            font-size: 0;
+            @media screen and (max-width:$w-m) {
+                overflow-x: scroll;
+                white-space: nowrap;
+                scroll-snap-type: x mandatory;
+            }
+            li {
+                display: block;
+                @media screen and (max-width:$w-m) {
+                    display: inline-block;
+                    scroll-snap-align: start;
+                }
+            }
+        }
+        .desktop-thumbnails {
+            display: none;
+            font-size: 0;
+            @media screen and (max-width:$w-m) {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            li {
+                max-width: 15%;
+            }
+        }
+        .mobile {
+            overflow-x: scroll;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            font-size: 0;
+            li {
+                display: inline-block;
+                 scroll-snap-align: start;
+            }
+        }
+        .mobile-thumbnails {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 0;
+            li {
+                max-width: 15%;
+            }
+        }
     }
     .details {
         width: 45%;
+        @media screen and (max-width:$w-m) {
+            width: 100%;
+        }
         .price {
             margin-bottom: 1em;
         }

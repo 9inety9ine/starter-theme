@@ -7,7 +7,7 @@
             <div id="drawer-cart-foot">
                 <div id="drawer-cart-total"></div>
                 <div class="actions">
-                    <button name="checkout" class="btn checkout">Checkout</button>
+                    <button name="checkout" class="btn checkout highlight">Checkout</button>
                     <div class="drawer-cart-links">
                         <a href="{{ shop.url }}/cart" class="view">View Your Cart</a>
                         <a href="#" onclick="return Drawer.click('cart',true)" class="continue">Continue Shopping</a>
@@ -17,4 +17,4 @@
         </form>
     </div>
 </div>
-<div id="curtain"></div>
+<div id="curtain" onclick="return Drawer.click('cart',true)"></div>

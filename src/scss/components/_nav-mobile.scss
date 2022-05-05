@@ -30,12 +30,8 @@
         background-color: rgba(0,0,0,.35);
     }
     nav.tools {
-        img {
+        .menu-link-cart {
             display: none;
-        }
-        .cart-counter {
-            margin-left: .5em;
-            font-weight: $font-bold;
         }
     }
 }

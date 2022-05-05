@@ -1,7 +1,7 @@
 {% for address in customer.addresses %}
 <div class="address address-edit" id="{{address.id}}">
     <h2>Edit Address</h2>
-    {% form 'customer_address', address, data-address: "root", class: "account" %}
+    {% form 'customer_address', address, data-address: "root", class: "address" %}
         <div class="row">
             <label for="AddressFirstName">{{ 'customer.addresses.first_name' | t }}</label>
             <input type="text" id="AddressFirstName" name="address[first_name]" value="{{ form.first_name }}">

@@ -1,0 +1,10 @@
+<div class="stickers">
+    {% if settings.show_new %}
+        {% assign product_created_at = product.created_at | date: '%s' %}
+        {% assign time_to_show = settings.show_new_time %}
+        {% assign time_ago = 'now' | date: '%s' | minus: product_created_at | divided_by: 86400 %}
+        {% if time_ago < time_to_show %}<span class="stickers_new">New</span>{% endif %}
+    {% endif %}
+    {% if settings.show_sale and product.compare_at_price %}<span class="stickers_sale">Sale</span>{% endif %}
+    {% if settings.show_stock %}{% unless product.available %}<span class="stickers_stock">Sold Out</span>{% endunless %}{% endif %}
+</div>
