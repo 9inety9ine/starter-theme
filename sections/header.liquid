@@ -1,6 +1,6 @@
 <div class="wrap">
 
-    <button class="toggle"><img src="{{ "icon-menu.svg" | asset_url }}"></button>
+    <button class="toggle"><img src="{{ "icon-menu.svg" | asset_url }}" alt="Menu Icon"></button>
     
     <a href="{{ shop.url }}" class="branding">
       {% if section.settings.header_logo != blank %}
@@ -16,23 +16,12 @@
 
 </div>
 
-{% if section.settings.sticky == true %}
-<style type="text/css">
-  header { position: sticky; top: 0; z-index: 9; }
-</style>
-{% endif %}
-
 {% schema %}
 {
   "name": "Header",
   "tag": "header",
   "class": "main",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "sticky",
-      "label": "Enable sticky header"
-    },
     {
       "type": "image_picker",
       "id": "header_logo",

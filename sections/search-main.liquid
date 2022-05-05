@@ -24,8 +24,8 @@
 
     <ul class="products" id="products">
       <!--__BEGIN_PRODUCT_LIST__-->
-    <div class="current-sort" style="display:none;">{{ search.sort_by }}</div>
-    <div class="current-search" style="display:none;">{{ search.terms }}</div>
+    <span class="current-sort" style="display:none;">{{ search.sort_by }}</span>
+    <span class="current-search" style="display:none;">{{ search.terms }}</span>
     {% for item in search.results %}
       {% if item.object_type == 'product' %}
         <li class="product">{% render "product-card", product: item %}</li>

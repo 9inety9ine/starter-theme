@@ -7,8 +7,8 @@
     {% paginate collection.products by 3 %}
     <ul class="products" id="products">
     <!--__BEGIN_PRODUCT_LIST__-->
-    <div class="current-sort" style="display:none;">{{ collection.sort_by }}</div>
-    <div class="current-collection" style="display:none;">{{ collection.url }}</div>
+    <span class="current-sort" style="display:none;">{{ collection.sort_by }}</span>
+    <span class="current-collection" style="display:none;">{{ collection.url }}</span>
     {% for product in collection.products %}
         {% assign count = count | plus: 1 %}
         <li class="product">{% render "product-card", product: product %}</li>
