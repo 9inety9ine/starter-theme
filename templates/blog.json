@@ -1,11 +1,27 @@
 {
   "sections": {
+    "blog-title": {
+      "type": "blog-title",
+      "settings": {
+        "show_me": true,
+        "title": ""
+      }
+    },
+    "blog-featured-article": {
+      "type": "blog-featured-article",
+      "settings": {
+        "show_me": true,
+        "article": "blog\/lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit"
+      }
+    },
     "blog-main": {
       "type": "blog-main",
       "settings": {}
     }
   },
   "order": [
+    "blog-title",
+    "blog-featured-article",
     "blog-main"
   ]
 }

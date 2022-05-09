@@ -17,11 +17,12 @@
     {% endfor %}
     <!--__END_PRODUCT_LIST__-->
     </ul>
-    {% if paginate.pages > 1 %}
-    <div class="pagination">
-        {{ paginate | default_pagination: next: '>', previous: '<' }}
-    </div>
+    <div class="pagination" id="pagination">
+    {% if paginate.next %}
+        <!--__BEGIN_NEXT_URL__{{ paginate.next.url }}__END_NEXT_URL__-->
+        <a class="btn" href="{{ paginate.next.url }}">Load More</a>
     {% endif %}
+    </div>
     {% endpaginate %}
 </div>
 

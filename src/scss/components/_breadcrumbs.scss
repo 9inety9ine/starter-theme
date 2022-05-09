@@ -1,0 +1,21 @@
+.breadcrumbs {
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    .wrap {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    ol {
+        display: flex;
+    }
+    li {
+        font-size: .9em;
+        &::after {
+            content: ">";
+            margin: 0 .5em 0 .25em;
+        }
+        &:last-child::after {
+            content: "";
+            margin: 0;
+        }
+    }
+}

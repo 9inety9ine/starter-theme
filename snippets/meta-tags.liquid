@@ -1,5 +1,7 @@
     {% if template == "index" %}
     <title>{{ shop.name }}{% if settings.short_description != blank %} - {{ settings.short_description | escape }}{% endif %}</title>
+    {% elsif template == "search" %}
+    <title>Search - {{ shop.name }}</title>
     {% else %}
     <title>{{ page_title }} - {{ shop.name }}</title>
     {% endif %}

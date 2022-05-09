@@ -13,13 +13,20 @@ h1, h2, h3, h4, h5, h6 {
     font: 3em $font-base;
     font-weight: $font-bold;
     margin-bottom: .5em;
-    line-height: 1em;
+    line-height: 1.5em;
+}
+h1 {
+    line-height: 1.35em;
 }
 h2, h3 {
     font-size: 1.5em;
 }
 h4, h5, h6 {
     font-size: 1em;
+}
+p {
+    line-height: 1.75em;
+    margin-bottom: 1em;
 }
 strong {
     font-weight: $font-bold;

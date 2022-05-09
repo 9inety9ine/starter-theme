@@ -15,7 +15,7 @@
       {% endif %}
         {%- unless predictive_search.resources.products.size < 1 -%}
           <li class="list-item-button" role="option">
-            <button class="predictive-search__item" tabindex="-1">View all search results for “{{ predictive_search.terms }}” &rarr;</button>
+            <button class="predictive-search__item" tabindex="-1" type="button" id="searchbutton">View all search results for “{{ predictive_search.terms }}” &rarr;</button>
           </li>
         {% endunless%}
         </ul>

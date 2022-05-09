@@ -21,8 +21,9 @@
     {% render "search-box" %}
     {% section "header" %}
     <main>
+      {% render "breadcrumbs" %}
       <div class="wrap">
-      {{ content_for_layout }}
+        {{ content_for_layout }}
       </div>
     </main>
     {% section "footer" %}
@@ -32,6 +33,7 @@
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     {{ 'predictive-search.js' | asset_url | script_tag }}
     {{ 'theme-addresses.js' | asset_url | script_tag }}
+    {{ 'ajaxinate.min.js' | asset_url | script_tag }}
     {{ 'application.js' | asset_url | script_tag }}
   </body>
 </html>

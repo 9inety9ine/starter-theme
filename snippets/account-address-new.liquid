@@ -3,11 +3,11 @@
     {% form 'customer_address', customer.new_address, data-address: "root", class: "address" %}
         <div class="row">
             <label for="AddressFirstName">{{ 'customer.addresses.first_name' | t }}</label>
-            <input type="text" id="AddressFirstName" name="address[first_name]" value="{{ form.first_name }}">
+            <input type="text" id="AddressFirstName" name="address[first_name]" value="{{ form.first_name }}" required="required">
         </div>
         <div class="row">
             <label for="AddressLastName">{{ 'customer.addresses.last_name' | t }}</label>
-            <input type="text" id="AddressLastName" name="address[last_name]" value="{{ form.last_name }}">
+            <input type="text" id="AddressLastName" name="address[last_name]" value="{{ form.last_name }}" required="required">
         </div>
         <div class="row" style="display:none">
             <label for="AddressCompany">{{ 'customer.addresses.company' | t }}</label>
@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <label for="AddressAddress1">{{ 'customer.addresses.address1' | t }}</label>
-            <input type="text" id="AddressAddress1" name="address[address1]" value="{{ form.address1 }}">
+            <input type="text" id="AddressAddress1" name="address[address1]" value="{{ form.address1 }}" required="required">
         </div>
         <div class="row" style="display:none">
             <label for="AddressAddress2">{{ 'customer.addresses.address2' | t }}</label>
@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <label for="AddressCity">{{ 'customer.addresses.city' | t }}</label>
-            <input type="text" id="AddressCity" name="address[city]" value="{{ form.city }}">
+            <input type="text" id="AddressCity" name="address[city]" value="{{ form.city }}" required="required">
         </div>
         <div class="row">
             <label for="AddressCountry">{{ 'customer.addresses.country' | t }}</label>
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <label for="AddressZip">{{ 'customer.addresses.zip' | t }}</label>
-            <input type="text" id="AddressZip" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+            <input type="text" id="AddressZip" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" required="required">
         </div>
         <div class="row">
             <label for="AddressPhone">{{ 'customer.addresses.phone' | t }}</label>

@@ -1,7 +1,7 @@
 {% paginate search.results by 999 %}
 
-  <form action="/search" method="get" role="search" class="search-main">
-    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search">
+  <form action="/search" method="get" role="search" class="search-main" id="searchinput">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" id="searchmain">
     <button class="search-clear">Clear</button>
     <input type="hidden" name="type" value="product">
   </form>
@@ -35,13 +35,12 @@
     </ul>
 
   {% endif %}
-
-  {% if paginate.pages > 1 %}
-    <div class="pagination">
-        {{ paginate | default_pagination: next: '>', previous: '<' }}
-    </div>
+  <div class="pagination" id="pagination">
+  {% if paginate.next %}
+      <!--__BEGIN_NEXT_URL__{{ paginate.next.url }}__END_NEXT_URL__-->
+      <a class="btn" href="{{ paginate.next.url }}">Load More</a>
   {% endif %}
-
+  </div>
 {% endpaginate %}
 
 {% render "search-filters-mobile" %}

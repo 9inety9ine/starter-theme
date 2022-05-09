@@ -4,8 +4,8 @@
     "theme_name": "Themekit template theme",
     "theme_version": "1.0.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://github.com/Shopify/themekit",
-    "theme_support_url": "https://github.com/Shopify/themekit/issues"
+    "theme_documentation_url": "https:\/\/github.com\/Shopify\/themekit",
+    "theme_support_url": "https:\/\/github.com\/Shopify\/themekit\/issues"
   },
   {
     "name": "Layout Options",
@@ -18,7 +18,6 @@
     ]
   },
   {
-
     "name": "Product Options",
     "settings": [
       {
@@ -96,7 +95,7 @@
         "type": "image_picker",
         "id": "share_image",
         "label": "Share Image",
-        "info": "This image will appear as the thumbnail when a non-product/non-article page is shared on social media (size: 1200x1200)."
+        "info": "This image will appear as the thumbnail when a non-product\/non-article page is shared on social media (size: 1200x1200)."
       },
       {
         "type": "text",

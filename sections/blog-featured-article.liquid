@@ -1,0 +1,39 @@
+{% if section.settings.show_me and section.settings.article != blank %}
+    {% assign current_page = canonical_url %}
+    {% unless current_page contains "page" or current_page contains 'tagged' %}
+    <article>
+        <a href="{{ section.settings.article.url }}" class="featured-article__article-image"><img src="{{ section.settings.article.image.src | img_url: "master" }}" alt="{{ article.title }}"></a>
+        <h2><a href="{{ section.settings.article.url }}">{{ section.settings.article.title }}</a></h2>
+        <div class="featured-article__article-content">
+            {% if section.settings.article.excerpt.size > 0 %}
+            {{ section.settings.article.excerpt }}
+            {% else %}
+            <p>{{ section.settings.article.content | strip_html | truncatewords: 60 }}</p>
+            <p class="featured-article__article-meta">{{ section.settings.article.author }} @ {{ section.settings.article.created_at | date: "%A, %B %d, %Y" }}</p>
+            {% endif %}
+        </div>
+    </article>
+    {% endunless %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Featured Article",
+  "tag": "div",
+  "class": "featured-article",
+  "settings":
+    [
+        {
+            "type": "checkbox",
+            "id": "show_me",
+            "label": "Show Featured Article",
+            "default": true
+        },
+        {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+        }
+    ] 
+}
+{% endschema %}

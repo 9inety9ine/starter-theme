@@ -1,20 +1,12 @@
 <div class="search-box">
     <div class="wrap">
         <predictive-search>
-            <form action="{{ routes.search_url }}" method="get" role="search">
+            <form action="/search" method="get" role="search" id="searchbox">
                 <div class="search-input">
                     <label for="Search">Search</label>
-                    <input placeholder="Search" id="Search" type="search" name="q" class="search"
-                    value="{{ search.terms | escape }}"
-                        aria-haspopup="listbox"
-                        aria-autocomplete="list"
-                        autocomplete="off"
-                        autocapitalize="off"
-                        spellcheck="false"
-                    >
+                    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" id="searchfield">
                     <button class="search-clear">Clear</button>
                     <button class="toggle-search">Close</button>
-                    <input name="options[prefix]" type="hidden" value="last">
                 </div>
                 <div id="predictive-search" tabindex="-1"></div>
             </form>

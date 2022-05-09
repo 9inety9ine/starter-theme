@@ -3,6 +3,30 @@
     <form class="filter-form" id="collection-filter-form">
         {% render "collection-filters" %}
         {% render "collection-sort" %}
-    </form> 
+    </form>
+</div>
+<div class="active-filters">
+    {% assign filter_count = 0 %}
+    {%- for filter in collection.filters -%}
+        {%- if filter.type == "price_range" -%}
+        {% assign has_range = false %}
+        {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+            {% assign has_range = true %}
+            <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+            {%- assign min_value = filter.min_value.value | default: 0 -%}
+            {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+            {{ min_value | money }} - {{ max_value | money }}
+            </a>
+        {%- endif -%}
+        {%- else -%}
+        {%- for filter_value in filter.active_values -%}
+            {% assign filter_count = filter_count | plus: 1 %}
+            <a class="active-filters__remove-filter filter-{{ filter_value.value | handleize}}" href="{{ filter_value.url_to_remove }}">{{ filter_value.label }}</a>
+        {%- endfor -%}
+        {%- endif- %}
+    {%- endfor -%}
+    {% if filter_count >= 1 or has_range == true %}
+    <a href="{{ collection.url }}" class="active-filters__clear">Clear all</a>
+    {% endif %}
 </div>
 {% endunless %}

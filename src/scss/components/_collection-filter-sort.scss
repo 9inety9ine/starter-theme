@@ -1,6 +1,5 @@
 .filter-sort {
     display: flex;
-    margin-bottom: 1.5em;
     justify-content: space-between;
     position: relative;
     z-index: 2;
@@ -13,27 +12,6 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-    }
-    .active-filters {
-        width: 100%;
-        display: flex;
-        a {
-            display: flex;
-            height: 2em;
-            align-items: center;
-            text-decoration: none;
-            line-height: 1;
-            margin-right: .5em;
-        }
-        &__remove-filter {
-            padding: 0 2.25em 0 1em;
-            border: 1px solid $color-primary;
-            background: transparent url(icon-close.svg) no-repeat calc(100% - .35em) 50%;
-            background-size: 1.15em;
-        }
-        &__clear {
-            padding: 0 1em 0 .5em;
-        }
     }
     .filter-group {
         position: relative;
@@ -102,6 +80,10 @@
             height: 3em;
             line-height: 1;
             margin-left: 1em;
+            white-space: nowrap;
+            @media screen and (max-width:$w-m) {
+                display: none;
+            }
         }
     }
     .toggle {
@@ -109,5 +91,28 @@
         @media screen and (max-width:$w-m) {
             display: block;
         }
+    }
+}
+.active-filters {
+    width: 100%;
+    display: flex;
+    padding-top: .5em;
+    margin-bottom: 2em;
+    a {
+        display: flex;
+        height: 2em;
+        align-items: center;
+        text-decoration: none;
+        line-height: 1;
+        margin-right: .5em;
+    }
+    &__remove-filter {
+        padding: 0 2.25em 0 1em;
+        border: 1px solid $color-primary;
+        background: transparent url(icon-close.svg) no-repeat calc(100% - .35em) 50%;
+        background-size: 1.15em;
+    }
+    &__clear {
+        padding: 0 1em 0 .5em;
     }
 }

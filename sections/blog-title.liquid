@@ -1,0 +1,27 @@
+{% if section.settings.show_me %}
+<div class="page-title">
+    <h1>{% if section.settings.title != blank %}{{ section.settings.title }}{% else %}{{ blog.title }}{% endif %}</h1>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Blog Title",
+  "tag": "div",
+  "class": "blog-title",
+  "settings":
+    [
+        {
+            "type": "checkbox",
+            "id": "show_me",
+            "label": "Show Title",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Custom Title"
+        }
+    ] 
+}
+{% endschema %}

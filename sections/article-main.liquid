@@ -1,14 +1,19 @@
-<div class="page-title">
+<img src="{{ article.image.src | img_url: "master" }}" alt="{{ article.title }}" class="page-article__image">
+
+<div class="page-article__title">
     <h1>{{ article.title }}</h1>
 </div>
-<div class="page-content">
-    <article>{{ article.content }}</article>
+
+<div class="page-article__content">
+    {{ article.content }}
 </div>
+
+<p class="page-article__meta">{{ article.author }} @ {{ article.created_at | date: "%A, %B %d, %Y" }}</p>
 
 {% schema %}
 {
   "name": "Article",
-  "tag": "div",
+  "tag": "article",
   "class": "container"
 }
 {% endschema %}

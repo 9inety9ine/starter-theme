@@ -36,6 +36,22 @@ class PredictiveSearch extends HTMLElement {
           const resultsMarkup = new DOMParser().parseFromString(text, 'text/html').querySelector('#shopify-section-predictive-search').innerHTML;
           this.predictiveSearchResults.innerHTML = resultsMarkup;
           this.open();
+
+          var searchInput = document.getElementById('searchbutton');
+          var newURL = `/search/?q=${searchTerm}&type=product`;
+          
+          searchInput.addEventListener('click', function(e) {
+              e.preventDefault();
+              window.location = newURL;
+          });
+
+          var searchForm = document.getElementById('searchfield');
+          searchForm.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+              window.location = newURL;
+            }
+          });
+
         })
         .catch((error) => {
           this.close();

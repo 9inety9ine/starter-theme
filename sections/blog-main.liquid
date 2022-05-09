@@ -1,23 +1,27 @@
-<div class="page-title">
-    <h1>{{ blog.title }}</h1>
-</div>
-<div class="page-content">
-    {% paginate blog.articles by 5 %}
-    {% for article in blog.articles %}
-      <div>
-        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-        {{ article.author }} @ {{ article.created_at }}
-        <div>
-          {% if article.excerpt.size > 0 %}
-            {{ article.excerpt }}
-          {% else %}
-            <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-          {% endif %}
-        </div>
-      </div>
-    {% endfor %}
+<div class="articles">
+    {% paginate blog.articles by 3 %}
+    <ul class="articles__article-list">
+      {% for article in blog.articles %}
+        <li class="articles__article">
+          <article>
+            <a href="{{ article.url }}" class="articles__article-image"><img src="{{ article.image.src | img_url: "480x" }}" alt="{{ article.title }}"></a>
+            <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <div class="articles__article-content">
+              {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+              {% else %}
+              <p>{{ article.content | strip_html | truncatewords: 40 }}</p>
+              {% endif %}
+              <p class="articles__article-meta">{{ article.author }} @ {{ article.created_at | date: "%A, %B %d, %Y" }}</p>
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
     {% if paginate.pages > 1 %}
-      {{ paginate | default_pagination }}
+    <div class="pagination">
+        {{ paginate | default_pagination: next: '>', previous: '<' }}
+    </div>
     {% endif %}
     {% endpaginate %}
 </div>

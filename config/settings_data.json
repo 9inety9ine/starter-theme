@@ -1,6 +1,32 @@
 {
-  "current": "Default",
+  "current": {
+    "sticky": true,
+    "slider_display": "mobile",
+    "description": true,
+    "description_open": true,
+    "show_sale": true,
+    "show_stock": true,
+    "show_new": true,
+    "show_new_time": 14,
+    "short_description": "",
+    "long_description": "",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header_logo": "shopify:\/\/shop_images\/logo_c4dc267f-58fc-4cf0-bc36-033189d62a8d.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_logo": "shopify:\/\/shop_images\/logo_d283c9e5-7405-4fdf-a38f-c57ddb15b7ea.png"
+        }
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
-    "Default": { }
+    "Default": {}
   }
 }
